@@ -58,5 +58,6 @@ resources:
 - resources/external-secrets.yaml
 - resources/ingresses.yaml
 - resources/namespaces.yaml
+- resources/service-accounts.yaml
 - resources/services.yaml
 - resources/statefulsets.yaml
