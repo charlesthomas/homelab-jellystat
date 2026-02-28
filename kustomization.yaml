@@ -8,14 +8,13 @@ commonAnnotations:
 commonLabels:
   app: jellystat
 
-resources:
-- resources/deployments.yaml
-- resources/external-secrets.yaml
-- resources/ingresses.yaml
-- resources/namespaces.yaml
-- resources/pvcs.yaml
-- resources/services.yaml
-- resources/statefulsets.yaml
+images:
+  - name: jellystat
+    newName: docker.io/cyfershepard/jellystat
+    newTag: 1.1.8
+  - name: postgres
+    newTag: "18.3"
+
 patches:
 - patch: |-
     apiVersion: apps/v1
@@ -53,3 +52,11 @@ patches:
         gethomepage.dev/pod-selector: ""
   target:
     kind: Ingress
+
+resources:
+- resources/deployments.yaml
+- resources/external-secrets.yaml
+- resources/ingresses.yaml
+- resources/namespaces.yaml
+- resources/services.yaml
+- resources/statefulsets.yaml

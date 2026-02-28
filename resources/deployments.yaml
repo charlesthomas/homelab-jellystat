@@ -1,0 +1,64 @@
+---
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  name: jellystat
+  namespace: jellystat
+  labels:
+    app: jellystat
+spec:
+  selector:
+    matchLabels:
+      app: jellystat
+  template:
+    metadata:
+      labels:
+        app: jellystat
+    spec:
+      containers:
+      - name: jellystat
+        image: jellystat
+        imagePullPolicy: IfNotPresent
+        ports:
+        - name: http
+          containerPort: 3000
+        env:
+        - name: PUID
+          value: "1000"
+        - name: PGID
+          value: "1000"
+        - name: TZ
+          value: "America/Detroit"
+        - name: POSTGRES_IP
+          value: postgres.jellystat.svc.cluster.local
+        - name: POSTGRES_PORT
+          value: 5432
+        - name: POSTGRES_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: postgres
+              key: password
+        - name: POSTGRES_USER
+          valueFrom:
+            secretKeyRef:
+              name: postgres
+              key: username
+        - name: JWT_SECRET
+          valueFrom:
+            secretKeyRef:
+              name: jellystat-jwt
+              key: password
+        resources:
+          limits:
+            memory: 4Gi
+        readinessProbe:
+          tcpSocket:
+            port: jellystat
+          initialDelaySeconds: 5
+          periodSeconds: 10
+        livenessProbe:
+          tcpSocket:
+            port: jellystat
+          initialDelaySeconds: 15
+          periodSeconds: 20
+

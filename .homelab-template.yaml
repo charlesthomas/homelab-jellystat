@@ -25,10 +25,9 @@ resources:
 - deployments.yaml
 - external-secrets.yaml
 - ingresses.yaml
-- pvcs.yaml
 - services.yaml
 - statefulsets.yaml
-service: true
+service: false
 serviceAccount: false
 svcName: jellystat
 svcPortName: http

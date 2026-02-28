@@ -13,3 +13,21 @@ spec:
     name: http
   selector:
     app: jellystat
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: postgres
+  namespace: jellystat
+  labels:
+    app: postgres
+spec:
+  type: ClusterIP
+  ports:
+    - name: postgres
+      port: 5432
+      protocol: TCP
+      targetPort: postgres
+  selector:
+    app: postgres
+
