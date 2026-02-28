@@ -55,12 +55,12 @@ spec:
             memory: 4Gi
         readinessProbe:
           tcpSocket:
-            port: jellystat
+            port: http
           initialDelaySeconds: 5
           periodSeconds: 10
         livenessProbe:
           tcpSocket:
-            port: jellystat
+            port: http
           initialDelaySeconds: 15
           periodSeconds: 20
 
