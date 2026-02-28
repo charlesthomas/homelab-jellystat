@@ -12,7 +12,7 @@ spec:
     protocol: TCP
     name: http
   selector:
-    app: jellystat
+    component: jellystat
 ---
 apiVersion: v1
 kind: Service
@@ -20,7 +20,8 @@ metadata:
   name: postgres
   namespace: jellystat
   labels:
-    app: postgres
+    app: jellystat
+    component: postgres
 spec:
   type: ClusterIP
   ports:
@@ -29,5 +30,5 @@ spec:
       protocol: TCP
       targetPort: postgres
   selector:
-    app: postgres
+    component: postgres
 

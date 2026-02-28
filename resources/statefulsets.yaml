@@ -5,19 +5,21 @@ metadata:
   name: postgres
   namespace: jellystat
   labels:
-    app: postgres
+    app: jellystat
+    component: postgres
 spec:
   serviceName: postgres
   updateStrategy:
     type: RollingUpdate
   selector:
     matchLabels:
-      app: postgres
+      component: postgres
   template:
     metadata:
       name: postgres
       labels:
-        app: postgres
+        app: jellystat
+        component: postgres
     spec:
       serviceAccountName: postgres
       securityContext:

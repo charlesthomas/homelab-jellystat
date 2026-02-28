@@ -6,14 +6,16 @@ metadata:
   namespace: jellystat
   labels:
     app: jellystat
+    component: jellystat
 spec:
   selector:
     matchLabels:
-      app: jellystat
+      component: jellystat
   template:
     metadata:
       labels:
         app: jellystat
+        component: jellystat
     spec:
       containers:
       - name: jellystat
