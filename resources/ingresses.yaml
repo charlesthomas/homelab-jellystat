@@ -1,0 +1,24 @@
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: jellystat
+  namespace: jellystat
+  annotations:
+    external-dns.alpha.kubernetes.io/hostname: jellystat.crt.house
+spec:
+  ingressClassName: nginx-internal
+  rules:
+    - host: "jellystat.crt.house"
+      http:
+        paths:
+          - path: "/"
+            pathType: Prefix
+            backend:
+              service:
+                name: jellystat
+                port:
+                  number: 3000
+  tls:
+    - hosts:
+      - jellystat.crt.house

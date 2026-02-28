@@ -1,0 +1,41 @@
+_commit: v1.12.1-10-g6796849
+_src_path: /Users/crthomas/code/charlesthomas/homelab-template
+additionalResources: ''
+backups: false
+helm: false
+homepageDescription: Media Tracker
+homepageEnabled: true
+homepageGroup: Media Management
+homepageIcon: jellystat
+homepageName: Jellystat
+ingClass: nginx-internal
+ingCname: ''
+ingExtraAnnotations: ''
+ingHost: jellystat.crt.house
+ingName: jellystat
+ingPathType: Prefix
+ingWebSockets: false
+ingress: true
+labels: 'app: jellystat'
+name: jellystat
+namespace: jellystat
+pvc: false
+reloader: true
+resources:
+- deployments.yaml
+- external-secrets.yaml
+- ingresses.yaml
+- pvcs.yaml
+- services.yaml
+- statefulsets.yaml
+service: true
+serviceAccount: false
+svcName: jellystat
+svcPortName: http
+svcPortNum: 3000
+svcProtocol: TCP
+svcSelector: 'app: jellystat'
+svcTargetPort: http
+svcType: ClusterIP
+upstreamURL: https://github.com/CyferShepard/Jellystat
+url: https://github.com/charlesthomas/homelab-jellystat
