@@ -48,7 +48,7 @@ patches:
         gethomepage.dev/description: Media Tracker
         gethomepage.dev/group: Media Management
         gethomepage.dev/icon: jellystat
-        gethomepage.dev/name: Jellytat
+        gethomepage.dev/name: Jellystat
         gethomepage.dev/pod-selector: ""
   target:
     kind: Ingress
