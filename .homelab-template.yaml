@@ -1,4 +1,4 @@
-_commit: v1.12.1-10-g6796849
+_commit: v1.12.1-12-g09a8ce4
 _src_path: /Users/crthomas/code/charlesthomas/homelab-template
 additionalResources: ''
 backups: false
@@ -31,11 +31,6 @@ resources:
 service: false
 serviceAccount: false
 svcName: jellystat
-svcPortName: http
 svcPortNum: 3000
-svcProtocol: TCP
-svcSelector: 'app: jellystat'
-svcTargetPort: http
-svcType: ClusterIP
 upstreamURL: https://github.com/CyferShepard/Jellystat
 url: https://github.com/charlesthomas/homelab-jellystat
