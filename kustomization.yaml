@@ -5,8 +5,10 @@ namespace: jellystat
 
 commonAnnotations:
   repo: https://github.com/charlesthomas/homelab-jellystat
-commonLabels:
-  app: jellystat
+labels:
+- includeSelectors: true
+  pairs:
+    app: jellystat
 
 images:
   - name: jellystat
@@ -61,3 +63,12 @@ resources:
 - resources/service-accounts.yaml
 - resources/services.yaml
 - resources/statefulsets.yaml
+
+configMapGenerator:
+- name: grafana-dashboard-jellystat
+  files:
+  - grafana/jellystat.json
+  options:
+    disableNameSuffixHash: true
+    labels:
+      grafana_dashboard: "1"
