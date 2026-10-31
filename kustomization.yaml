@@ -5,8 +5,10 @@ namespace: jellystat
 
 commonAnnotations:
   repo: https://github.com/charlesthomas/homelab-jellystat
-commonLabels:
-  app: jellystat
+labels:
+- includeSelectors: true
+  pairs:
+    app: jellystat
 
 images:
   - name: jellystat
